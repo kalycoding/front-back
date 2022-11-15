@@ -1,0 +1,35 @@
+version: "3.9"
+
+services:
+  
+  django-dev:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    command:
+      [
+        "python",
+        "manage.py",
+        "runserver",
+        "0.0.0.0:8000"
+      ]
+    ports:
+      - "8000:8000"
+    restart: always
+    stdin_open: true
+    tty: true
+    volumes:
+      - ./backend:/backend
+
+  frontend-dev:
+    build:
+      context: ./react-ant-interview
+      dockerfile: Dockerfile
+    command: [ "bash", "-c", "npm start" ]
+    ports:
+      - "3000:3000"
+    depends_on:
+      - django-dev
+    restart: always
+    volumes:
+      - ./frontend:/frontend
