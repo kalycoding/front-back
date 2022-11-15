@@ -1,7 +1,7 @@
 # Run the app
 
-in the react-ant-interview 
-### `npm start`
+cd into the react-ant-interview folder
+### `npm install`
 
 
 ### `docker-compose up`

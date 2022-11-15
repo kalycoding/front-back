@@ -32,4 +32,4 @@ services:
       - django-dev
     restart: always
     volumes:
-      - ./frontend:/frontend
+      - ./react-ant-interview:/react-ant-interview
